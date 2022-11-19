@@ -64,3 +64,9 @@ TBD
 TBD
 
 ## Notes
+
+## Sources
+Dan Gold Image https://unsplash.com/photos/4_jhDO54BYg
+
+Coffee Picture AceKreations https://pixabay.com/photos/coffee-beans-mug-cup-coffee-cup-1117933/
+Thailand Food ducken99 https://pixabay.com/photos/fried-rice-thai-food-thai-cuisine-3023040/
