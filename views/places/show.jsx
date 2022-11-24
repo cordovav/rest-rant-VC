@@ -4,7 +4,7 @@ const Def = require('../default')
 function show (data) {
     return (
         <Def>
-            <main>
+            <main className='pt-3'>
                 <div className="row">
                     
                     <div className='col-sm-6'>
@@ -12,18 +12,20 @@ function show (data) {
                     </div>
                     <div className='col-sm-6'>
                         <h1>{ data.place.name }</h1>
-                        <h2>Rating</h2>
-                        <h3>Not Rated</h3>
+                            <h2>Rating</h2>
+                                <h3>Not Rated</h3>
                         <br />
-                        <h2>Description</h2>
-                        <h3>Located in {data.place.city}, {data.place.state}</h3>
-                        <h3>Serving {data.place.cuisines}</h3>
+                            <h2>Description</h2>
+                                <h3>Located in {data.place.city}, {data.place.state}</h3>
+                                <h3>Serving {data.place.cuisines}</h3>
                         <br />
-                        <a href={`/places/${data.id}/edit`} className='btn btn-warning'> Edit </a>
+                        <a href={`/places/${data.id}/edit`} className='btn btn-warning'> 
+                            Edit 
+                        </a>
                         <form method="POST" action={`/places/${data.id}?method=DELETE`}>
-                        <button type='submit' className='btn btn-danger'>
-                            Delete
-                        </button>
+                            <button type='submit' className='btn btn-danger'>
+                                Delete
+                            </button>
                         </form>
                     </div>
                 </div>

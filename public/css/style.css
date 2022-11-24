@@ -42,4 +42,9 @@ main {
     margin-right: 20px;
     margin-left: 20px;
     background-color: white;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+form{
+    display: inline;
 }
