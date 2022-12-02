@@ -1,7 +1,7 @@
 //modules and globals
 require('dotenv').config()
-const methodOverride = require('method-override')
 const express = require('express')
+const methodOverride = require('method-override')
 const app = express()
 
 //express setting
@@ -22,6 +22,5 @@ app.get('/', (req, res) =>{
 app.get('*', (req, res) =>{
     res.render('error404')
 })
-
 
 app.listen(process.env.PORT)
