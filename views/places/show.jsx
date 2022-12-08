@@ -7,7 +7,25 @@ function show (data) {
             No comment yet!
         </h3>
     )
+    let rating = (
+        <h3 className="inactive">
+            Not Yet Rated
+        </h3>
+    )
     if (data.place.comments.length) {
+        let sumRatings = data.place.comments.reduce((tot, c) =>{
+            return tot + c.stars
+        }, 0)
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        let stars = ''
+        for (let i = 0; i < averageRating; i++){
+            stars += '⭐' 
+        }
+        rating = (
+            <h3>
+                {stars} stars
+            </h3>
+        )
         comments = data.place.comments.map(c => {
             return (
                 <div className='border col-sm-4'>
@@ -17,7 +35,9 @@ function show (data) {
                         <strong>- {c.author}</strong>
                     </h3>
                     <h4>Rating: {c.stars}</h4>
-                        
+                    <form action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+                        <input type="submit" className='btn btn-danger' value='Delete Comment' />
+                    </form>
                 </div>
             )
         })
@@ -36,7 +56,7 @@ function show (data) {
                     <div className='col-sm-6'>
                         <h1>{ data.place.name }</h1>
                             <h2>Rating</h2>
-                                <h3>Not Rated</h3>
+                                {rating}
                         <br />
                             <h2>Description</h2>
                             <h3>
@@ -46,10 +66,10 @@ function show (data) {
                                     Serving {data.place.cuisines}
                                     </h4>
                         <br />
-                        <a href={`/places/${data.id}/edit`} className='btn btn-warning'> 
+                        <a href={`/places/${data.place.id}/edit`} className='btn btn-warning'> 
                             Edit 
                         </a>
-                        <form method="POST" action={`/places/${data.id}?method=DELETE`}>
+                        <form method="POST" action={`/places/${data.place.id}?method=DELETE`}>
                             <button type='submit' className='btn btn-danger'>
                                 Delete
                             </button>
@@ -80,7 +100,7 @@ function show (data) {
                         </div>
                         <div className='form-group col-sm-2'>
                             <label htmlFor='rant'> Rant?</label>
-                            <input type='checkbox' className='form-control' id='rant' name='rant'/>
+                            <input type='checkbox' id='rant' name='rant'/>
                         </div>
                     </div>
                     <div className="p-2">
